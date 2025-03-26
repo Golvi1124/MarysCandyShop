@@ -10,36 +10,59 @@ var menu = "Choose one option:\n"
     + 'D' + " to delete product\n"
     + 'U' + " to update product\n";
 
-Console.WriteLine(title);
-Console.WriteLine(divide);
-Console.WriteLine($"Today's date: {dateTime}");
-Console.WriteLine("Days since opening: " + daysSinceOpening);
-Console.WriteLine("Today's profit: " + todaysProfit + "$");
-Console.WriteLine("Today's target achieved: " + targetAchieved);
-Console.WriteLine(divide);
-Console.WriteLine(menu);
+Console.WriteLine($@"{title}
+{divide}
+Today's date: {dateTime}
+Days since opening: {daysSinceOpening}
+Today's profit: {todaysProfit} $
+Today's target achieved: {targetAchieved}
+{divide}
+{menu}");
 
 
 
 var usersChoice = Console.ReadLine().Trim().ToUpper();
 
-if  (usersChoice == "A")
+switch (usersChoice)
 {
-    Console.WriteLine("User chose A");
+
+    case "A":
+        AddProduct("User chose A");
+        break;
+
+    case "D":
+        DeleteProduct("User chose D");
+        break;
+
+    case "V":
+        ViewProducts("User chose V");
+        break;
+
+    case "U":
+        UpdateProduct("User chose U");
+        break;
+
+    default:
+        Console.WriteLine("Invalid choice!");
+        break;
 }
-else if (usersChoice == "D")
+
+void AddProduct(string message)
 {
-    Console.WriteLine("User chose D");
+    Console.WriteLine(message);
 }
-else if (usersChoice == "V")
+
+void DeleteProduct(string message)
 {
-    Console.WriteLine("User chose V");
+    Console.WriteLine(message);
 }
-else if (usersChoice == "U")
+
+void UpdateProduct(string message)
 {
-    Console.WriteLine("User chose U");
+    Console.WriteLine(message);
 }
-else
+
+void ViewProducts(string message)
 {
-    Console.WriteLine("Invalid choice!");
+    Console.WriteLine(message);
 }
